@@ -1,8 +1,6 @@
 var js = new Array();
 var name = new Array();
 
-Entry.toast.success('실행', '실행됨', false);
-
 //EntJS리스트 가져오기
 Entry.variableContainer.getListByName('EntJS').getArray()[0].data
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
@@ -36,7 +34,7 @@ var calert, ctoast, ceval;
 var value, args;
 if(cready){
   Entry.variableContainer.getValueByName(cready).setValue(1);
-  Entry.toast.success('성공', 'EntJS가 시작되었습니다.', false);
+  Entry.toast.success('성공', 'EntJS가 시작되었습니다.', true);
 }
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
