@@ -5,8 +5,8 @@ var name = new Array();
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
   var listitem = Entry.variable.Container.getListByName('EntJS').getArray()[i].data;
   var args = listitem.split(" : ");
-  js[i].push(args[0]);
-  name[i].push(args[1])
+  js.push(args[0]);
+  name.push(args[1])
   console.log(`${args[0]} ||  ${args[1]}`);
 }
 console.log('EntJS리스트 가져오기 성공');
