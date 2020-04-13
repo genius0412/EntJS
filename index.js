@@ -1,5 +1,7 @@
-let js = new Array();
-let name = new Array();
+var js = new Array();
+var name = new Array();
+
+console.log('실행됨');
 
 //EntJS리스트 가져오기
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
@@ -28,9 +30,9 @@ function toastOptions(a){
 
 //EntJS가 실행되었는지 체크
 //c = check return 값이라는 뜻
-let cready = check('ready');
-let calert, ctoast, ceval;
-let value, args;
+var cready = check('ready');
+var calert, ctoast, ceval;
+var value, args;
 if(cready){
   Entry.variableContainer.getValueByName(cready).setValue(1);
   Entry.toast.success('성공', 'EntJS가 시작되었습니다.', false);
