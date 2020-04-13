@@ -2,12 +2,12 @@ var js = new Array();
 var name = new Array();
 
 //EntJS리스트 가져오기
-Entry.variableContainer.getListByName('EntJS').getArray()[0].data
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
   var listitem = Entry.variable.Container.getListByName('EntJS').getArray()[i].data;
   var args = listitem.split(" : ");
   js[i].push(args[0]);
-  name[i].push(args[1]);
+  name[i].push(args[1])
+  console.log(`${args[0]} ||  ${args[1]}`);
 }
 console.log('EntJS리스트 가져오기 성공');
 
