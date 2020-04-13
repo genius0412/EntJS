@@ -1,7 +1,7 @@
 var js = new Array();
 var name = new Array();
 
-console.log('실행됨');
+Entry.toast.success('실행', '실행됨', false);
 
 //EntJS리스트 가져오기
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
