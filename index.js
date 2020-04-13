@@ -9,6 +9,7 @@ for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;
   js[i].push(args[0]);
   name[i].push(args[1]);
 }
+console.log('EntJS리스트 가져오기 성공');
 
 //명령어 변수가 바뀌었는지 체크
 function check(a){
@@ -35,6 +36,7 @@ var value, args;
 if(cready){
   Entry.variableContainer.getValueByName(cready).setValue(1);
   Entry.toast.success('성공', 'EntJS가 시작되었습니다.', true);
+  console.log('실행시작');
 }
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
