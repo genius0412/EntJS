@@ -19,11 +19,11 @@ function check(a){
 
 //toast 옵션 리턴 함수
 function toastOptions(a){
-  if(a == '성공') return 'success';
-  if(a == '경고') return 'warning';
-  if(a == '오류') return 'alert';
-  if(a == '유지') return true;
-  if(a == '사라짐') return false;
+  if(a === '성공') return 'success';
+  if(a === '경고') return 'warning';
+  if(a === '오류') return 'alert';
+  if(a === '유지') return true;
+  if(a === '사라짐') return false;
   return 'error';
 }
 
