@@ -33,6 +33,7 @@ let calert, ctoast, ceval;
 let value, args;
 if(cready){
   Entry.variableContainer.getValueByName(cready).setValue(1);
+  Entry.toast.success('성공', 'EntJS가 시작되었습니다.', false);
 }
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
