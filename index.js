@@ -4,6 +4,7 @@ var name = new Array();
 Entry.toast.success('실행', '실행됨', false);
 
 //EntJS리스트 가져오기
+Entry.variableContainer.getListByName('EntJS').getArray()[0].data
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
   var listitem = Entry.variable.Container.getListByName('EntJS').getArray()[i].data;
   var args = listitem.split(" : ");
