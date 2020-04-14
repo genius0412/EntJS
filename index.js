@@ -1,12 +1,12 @@
 var js = new Array();
-var name = new Array();
+var vname = new Array();
 
 //EntJS리스트 가져오기
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
   var listitem = Entry.variableContainer.getListByName('EntJS').getArray()[i].data;
   var args = listitem.split(" : ");
   js.push(args[0]);
-  name.push(args[1])
+  vname.push(args[1])
   console.log(`${args[0]} ||  ${args[1]}`);
 }
 console.log('EntJS리스트 가져오기 성공');
@@ -14,7 +14,7 @@ console.log('EntJS리스트 가져오기 성공');
 //명령어 변수가 바뀌었는지 체크
 function check(a){
   for(var i=0; i<js.length; i++){
-    if(js[i] == a) return name[i];
+    if(js[i] == a) return vname[i];
   }
 }
 
