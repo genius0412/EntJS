@@ -54,7 +54,7 @@ setInterval(function(){
   if(calert){
     value = Entry.variableContainer.getVariableByName(calert).value_;
     if(value){
-      alert(calert);
+      alert(value);
       Entry.variableContainer.getVariableByName(calert).setValue(0);
     }
   }
