@@ -39,6 +39,9 @@ if(cready){
   Entry.toast.success('성공', 'EntJS가 시작되었습니다.', true);
   console.log('실행시작');
 }
+Entry.variableContainer.getVariableByName(check('alert')).setValue(0);
+Entry.variableContainer.getVariableByName(check('toast')).setValue(0);
+Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
 setInterval(function(){
@@ -59,7 +62,7 @@ setInterval(function(){
   //toast check
   if(ctoast){
     value = Entry.variableContainer.getVariableByName(ctoast).value_;
-    if(value != "0"){
+    if(value){
       args = value.split(" : ");
       eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);
       Entry.variableContainer.getVariableByName(ctoast).setValue(0);
