@@ -3,7 +3,7 @@ var name = new Array();
 
 //EntJS리스트 가져오기
 for(var i=0; i<Entry.variableContainer.getListByName('EntJS').getArray().length;i++){
-  var listitem = Entry.variable.Container.getListByName('EntJS').getArray()[i].data;
+  var listitem = Entry.variableContainer.getListByName('EntJS').getArray()[i].data;
   var args = listitem.split(" : ");
   js.push(args[0]);
   name.push(args[1])
