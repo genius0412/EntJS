@@ -75,3 +75,8 @@ setInterval(function(){
     }
   }
 },100);
+
+//////////////////////
+//made by genius0412
+//EntJS | JS-in-Entry
+//////////////////////
