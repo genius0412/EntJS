@@ -64,9 +64,9 @@ setInterval(function(){
     value = Entry.variableContainer.getVariableByName(ctoast).value_;
     if(value){
       args = value.split(" : ");
+      console.log('eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);');
       eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);
       Entry.variableContainer.getVariableByName(ctoast).setValue(0);
-      console.log('eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);');
     }
   }
   
