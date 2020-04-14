@@ -59,7 +59,7 @@ setInterval(function(){
   //toast check
   if(ctoast){
     value = Entry.variableContainer.getVariableByName(ctoast).value_;
-    if(value){
+    if(value != "0"){
       args = value.split(" : ");
       eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);
       Entry.variableContainer.getVariableByName(ctoast).setValue(0);
