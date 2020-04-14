@@ -26,7 +26,6 @@ function toastOptions(a){
   if(a === '오류') return 'alert';
   if(a === '유지') return true;
   if(a === '사라짐') return false;
-  return 'error';
 }
 console.log('toast 옵션 함수 로드 완료');
 
