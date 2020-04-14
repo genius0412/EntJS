@@ -17,6 +17,7 @@ function check(a){
     if(js[i] == a) return vname[i];
   }
 }
+console.log('check 함수 로드 완료');
 
 //toast 옵션 리턴 함수
 function toastOptions(a){
@@ -27,6 +28,7 @@ function toastOptions(a){
   if(a === '사라짐') return false;
   return 'error';
 }
+console.log('toast 옵션 함수 로드 완료');
 
 //EntJS가 실행되었는지 체크
 //c = check return 값이라는 뜻
@@ -34,7 +36,7 @@ var cready = check('ready');
 var calert, ctoast, ceval;
 var value, args;
 if(cready){
-  Entry.variableContainer.getValueByName(cready).setValue(1);
+  Entry.variableContainer.getVariableByName(cready).setValue(1);
   Entry.toast.success('성공', 'EntJS가 시작되었습니다.', true);
   console.log('실행시작');
 }
