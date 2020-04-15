@@ -32,7 +32,7 @@ console.log('toast 옵션 함수 로드 완료');
 //EntJS가 실행되었는지 체크
 //c = check return 값이라는 뜻
 var cready = check('ready');
-var calert, ctoast, ceval;
+var calert, ctoast, ceval, cprompt, rprompt;
 var value, args;
 if(cready){
   Entry.variableContainer.getVariableByName(cready).setValue(1);
@@ -42,6 +42,7 @@ if(cready){
 Entry.variableContainer.getVariableByName(check('alert')).setValue(0);
 Entry.variableContainer.getVariableByName(check('toast')).setValue(0);
 Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
+Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
 setInterval(function(){
@@ -49,6 +50,7 @@ setInterval(function(){
   calert = check('alert');
   ctoast = check('toast');
   ceval = check('eval');
+  cprompt = check('prompt');
   
   //alert check
   if(calert){
@@ -64,7 +66,6 @@ setInterval(function(){
     value = Entry.variableContainer.getVariableByName(ctoast).value_;
     if(value){
       args = value.split(" : ");
-      console.log('eval(`Entry.toast.${toastOptions(args[0])}(${args[2]}, ${args[3]}, ${toastOptions(args[1])})`);');
       eval(`Entry.toast.${toastOptions(args[0])}('${args[2]}', '${args[3]}', ${toastOptions(args[1])})`);
       Entry.variableContainer.getVariableByName(ctoast).setValue(0);
     }
@@ -76,6 +77,15 @@ setInterval(function(){
     if(value){
       eval(`${value}`);
       Entry.variableContainer.getVariableByName(ceval).setValue(0);
+    }
+  }
+  
+  if(cprompt){
+    value = Entry.variableContainer.getVariableByName(cprompt).value_;
+    if(value){
+      args = value.split(" : ");
+      Entry.variableContainer.getVariableByName(args[0]).setValue(prompt(args[1], args[2]));
+      Entry.variableContainer.getVariableByName(cprompt).setValue(0);
     }
   }
 },100);
