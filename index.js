@@ -53,11 +53,9 @@ function changeName(category, title){
     url: "https://playentry.org/api/project/"+ projectid,
     type: "PUT",
     data: {"category" : category, "name" : title, "isopen":true, "group":[]},
-    success: function(data){
-      console.log(data);
-    }
   });
 }
+console.log('changeName함수 로드 완료')
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
 setInterval(function(){
