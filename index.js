@@ -50,7 +50,7 @@ Entry.variableContainer.getVariableByName(check('title')).setValue(0);
 //change Name
 function changeName(category, title){
   $.ajax({
-    url: "https://playentry.org/api/project/"+projectId,
+    url: "https://playentry.org/api/project/"+ projecd,
     type: "PUT",
     data: {"category" : category, "name" : title, "isopen":true, "group":[]},
     success: function(data){
