@@ -30,12 +30,21 @@ function toastOptions(a){
 }
 console.log('toast 옵션 함수 로드 완료');
 
+//change Name
+function changeName(category, title){
+  $.ajax({
+    url: "https://playentry.org/api/project/"+ Entry.projectId,
+    type: "PUT",
+    data: {"category" : category, "name" : title, "isopen":true, "group":[]},
+  });
+}
+console.log('changeName함수 로드 완료')
+
 //EntJS가 실행되었는지 체크
 //c = check return 값이라는 뜻
 var cready = check('ready');
 var calert, ctoast, ceval, cprompt, rprompt, cconfirm, rconfirm;
 var ctitle;
-var projectid = Entry.projectId;
 var value, args;
 if(cready){
   Entry.variableContainer.getVariableByName(cready).setValue(1);
@@ -47,16 +56,6 @@ Entry.variableContainer.getVariableByName(check('toast')).setValue(0);
 Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
 Entry.variableContainer.getVariableByName(check('prompt')).setValue(0);
 Entry.variableContainer.getVariableByName(check('title')).setValue(0);
-
-//change Name
-function changeName(category, title){
-  $.ajax({
-    url: "https://playentry.org/api/project/"+ projectid,
-    type: "PUT",
-    data: {"category" : category, "name" : title, "isopen":true, "group":[]},
-  });
-}
-console.log('changeName함수 로드 완료')
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
 setInterval(function(){
