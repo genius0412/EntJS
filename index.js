@@ -32,7 +32,9 @@ console.log('toast 옵션 함수 로드 완료');
 //EntJS가 실행되었는지 체크
 //c = check return 값이라는 뜻
 var cready = check('ready');
-var calert, ctoast, ceval, cprompt, rprompt;
+var calert, ctoast, ceval, cprompt, rprompt, cconfirm, rconfirm;
+var ctitle;
+var projectid = Entry.projectId;
 var value, args;
 if(cready){
   Entry.variableContainer.getVariableByName(cready).setValue(1);
@@ -42,7 +44,20 @@ if(cready){
 Entry.variableContainer.getVariableByName(check('alert')).setValue(0);
 Entry.variableContainer.getVariableByName(check('toast')).setValue(0);
 Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
-Entry.variableContainer.getVariableByName(check('eval')).setValue(0);
+Entry.variableContainer.getVariableByName(check('prompt')).setValue(0);
+Entry.variableContainer.getVariableByName(check('title')).setValue(0);
+
+//change Name
+function changeName(category, title){
+  $.ajax({
+    url: "https://playentry.org/api/project/"+projectId,
+    type: "PUT",
+    data: {"category" : category, "name" : title, "isopen":true, "group":[]},
+    success: function(data){
+      console.log(data);
+    }
+  });
+}
 
 //0.1초 마다 반복하면서 명령어 변수가 값이 바뀌었는지 체크
 setInterval(function(){
@@ -80,12 +95,23 @@ setInterval(function(){
     }
   }
   
+  //prompt check
   if(cprompt){
     value = Entry.variableContainer.getVariableByName(cprompt).value_;
     if(value){
       args = value.split(" : ");
       Entry.variableContainer.getVariableByName(args[0]).setValue(prompt(args[1], args[2]));
       Entry.variableContainer.getVariableByName(cprompt).setValue(0);
+    }
+  }
+  
+  //ctitle
+  if(ctitle){
+    value = Entry.variableContainer.getVariableByName(ctitle).value_;
+    if(value){
+      args = value.split(" : ");
+      changeName(args[0], args[1]);
+      Entry.variableContainer.getVariableByName(ctitle).setValue(0);
     }
   }
 },100);
