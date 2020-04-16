@@ -66,6 +66,7 @@ setInterval(function(){
   ctoast = check('toast');
   ceval = check('eval');
   cprompt = check('prompt');
+  ctitle = check('title');
   
   //alert check
   if(calert){
